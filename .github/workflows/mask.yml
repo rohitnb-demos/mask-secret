@@ -7,7 +7,7 @@ on:
         description: Some secret text
         required: true
       normalinput1:
-        description: Some secret text
+        description: Some normal text
         required: true
   
 jobs:
