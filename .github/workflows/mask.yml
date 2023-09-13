@@ -1,0 +1,28 @@
+name: Mask workflow inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      secret1:
+        description: Some secret text
+        required: true
+      normalinput1:
+        description: Some secret text
+        required: true
+  
+jobs:
+  mask-print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: add-mask
+        uses: actions/github-script@v6
+        with:
+          script: |      
+             core.setSecret(context.payload.inputs.secret1);
+      - name: Print
+        run: |
+          echo "${SECRET1}"
+          echo "${NORMALINPUT1}"
+        env:
+          SECRETVAR: ${{ github.event.inputs.secret1 }}
+          ANOTHERSECRETVAR: ${{ github.event.inputs.normalinput1 }}
