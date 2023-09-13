@@ -24,5 +24,5 @@ jobs:
           echo "${SECRET1}"
           echo "${NORMALINPUT1}"
         env:
-          SECRETVAR: ${{ github.event.inputs.secret1 }}
-          ANOTHERSECRETVAR: ${{ github.event.inputs.normalinput1 }}
+          SECRET1: ${{ github.event.inputs.secret1 }}
+          NORMALINPUT1: ${{ github.event.inputs.normalinput1 }}
